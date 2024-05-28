@@ -3,6 +3,7 @@
     const jsonResultsDiv = document.getElementById('jsonResults');
     jsonResultsDiv.innerHTML = ''; // Clear any existing content
  }
+
  function createListItems(obj, parentElement) {
     for (const key in obj) {
         if (obj.hasOwnProperty(key)) {
@@ -33,7 +34,17 @@ function confirmUpload() {
     // Validate file selection (you can add additional validation here)
     const fileInput = document.getElementById('fileInput');
     if (fileInput.files.length === 0) {
-        alert('Please select a file.');
+        const alertDiv = document.createElement('div');
+        alertDiv.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
+        alertDiv.innerHTML = `
+        Please select a file.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+        const alertArea = document.getElementById('alertArea');
+        alertArea.appendChild(alertDiv);
+        setTimeout(() => {
+            alertDiv.remove();
+        }, 3000);        
         return;
     }
     // Send an HTTP request to the specified endpoint (adjust the URL as needed)
