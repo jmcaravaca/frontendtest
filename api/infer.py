@@ -19,11 +19,12 @@ async def upload_file(file: UploadFile = File(...)):
 
 def inference_test(filepath: str):
     print(f"Fake inference for: {filepath}")
-    result = {"key1" : "value1" ,
-              "key2" : "value1" ,
-              "key3" : "value1" ,
-              "key4" : {"subkey1" : "subval1",
-                        "subkey2" : "subval2"} ,
-              "key5" : "value5" ,
+    lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    result = {"key1" : lorem ,
+              "key2" : lorem ,
+              "key3" : lorem ,
+              "key4" : {"subkey1" : lorem,
+                        "subkey2" : lorem} ,
+              "key5" : lorem ,
               }
     return result
