@@ -34,7 +34,7 @@ function confirmUpload() {
                         const subList = document.createElement('ul');
                         const li = document.createElement('li');
                         li.classList.add('list-group-item'); // Add Bootstrap class
-                        li.innerHTML = `<strong>${key}:</strong>`;
+                        li.innerHTML = `<a href="#" class="list-group-item list-group-item-action list-group-item-primary">${key}:</a>`;
                         li.appendChild(subList);
                         parentElement.appendChild(li);
                         createListItems(obj[key], subList); // Recursive call for nested objects
@@ -42,7 +42,10 @@ function confirmUpload() {
                         // Create list item for non-object values
                         const li = document.createElement('li');
                         li.classList.add('list-group-item'); // Add Bootstrap class
-                        li.innerHTML = `<strong>${key}:</strong> ${obj[key]}`;
+                        li.innerHTML = `
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">${key}:</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-info">${obj[key]}</a>
+                      `;
                         parentElement.appendChild(li);
                     }
                 }
@@ -50,7 +53,7 @@ function confirmUpload() {
         }
     
         // Create an unordered list to display the keys and values
-        const ul = document.createElement('ul');
+        const ul = document.createElement('div');
         ul.classList.add('list-group')
         createListItems(jsonData, ul); // Start the recursive function call
     
