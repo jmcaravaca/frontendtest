@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container border border-secondary pt-2 pb-2 mt-5 rounded" id="jsonResults"></div>
+    <div class="container border border-primary pt-2 pb-2 mt-5 rounded">
         <h1>File Upload</h1>
-        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+        <form id="uploadForm" method="post" enctype="multipart/form-data">
             <!-- File input -->
             <div class="mb-3">
                 <label for="fileInput" class="form-label">Select a file:</label>
@@ -21,35 +22,9 @@
         </form>
     </div>
 
+
     <!-- Include Bootstrap JS (optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function confirmUpload() {
-            // Validate file selection (you can add additional validation here)
-            const fileInput = document.getElementById('fileInput');
-            if (fileInput.files.length === 0) {
-                alert('Please select a file.');
-                return;
-            }
-
-            // Send an HTTP request to the specified endpoint (adjust the URL as needed)
-            const formData = new FormData(document.getElementById('uploadForm'));
-            fetch('{{infer_upload}}', {
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('File uploaded successfully!');
-                    // Handle any additional actions (e.g., redirect, display success message)
-                } else {
-                    alert('Error uploading file. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-    </script>
+    <script src="static/front.js"></script>
 </body>
 </html>
